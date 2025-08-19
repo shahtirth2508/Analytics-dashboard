@@ -1,4 +1,4 @@
-import { Header, MainContent, Navigation } from "@/components/layout";
+import { Header, MainContent, Navigation } from "../../components/layout";
 
 export const HomePage = (): JSX.Element => {
   return (

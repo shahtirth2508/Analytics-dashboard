@@ -6,7 +6,7 @@ import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
-  plugins: [react(), mode === "development" && screenGraphPlugin()],
+  plugins: [react(), mode === "development" && screenGraphPlugin()].filter(Boolean),
   publicDir: "./static",
   base: "/",
   resolve: {
@@ -24,6 +24,16 @@ export default defineConfig(({ mode }) => ({
   css: {
     postcss: {
       plugins: [tailwind()],
+    },
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          utils: ['clsx', 'tailwind-merge'],
+        },
+      },
     },
   },
 }));

@@ -1,3 +1,5 @@
+import { Button } from "../../ui/button";
+import { Separator } from "../../ui/separator";
 import {
   BellIcon,
   BuildingIcon,
@@ -6,9 +8,7 @@ import {
   HomeIcon,
   MenuIcon,
   PlusIcon,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+} from "../../icons";
 
 export const HeaderSection = (): JSX.Element => {
   return (
@@ -19,13 +19,13 @@ export const HeaderSection = (): JSX.Element => {
         size="icon"
         className="md:hidden flex w-8 h-8 items-center justify-center hover:bg-gray-100 rounded-lg"
       >
-        <MenuIcon className="w-5 h-5 text-[#212121]" />
+        <MenuIcon className="w-6 h-6 text-[#212121]" />
       </Button>
 
       <div className="flex items-center justify-between flex-1 min-w-0">
         <div className="flex items-center">
           <div className="flex items-center gap-1">
-            <HomeIcon className="w-5 h-5 text-[#212121]" />
+            <HomeIcon className="w-6 h-6 text-[#212121]" />
             <span className="text-sm font-medium text-[#212121] whitespace-nowrap">
               Home
             </span>
@@ -65,23 +65,23 @@ export const HeaderSection = (): JSX.Element => {
             size="icon"
             className="flex w-8 h-8 items-center justify-center gap-2.5 relative hover:bg-gray-100 rounded-full"
           >
-            <BellIcon className="relative w-5 h-5 text-[#212121]" />
+            <BellIcon className="relative w-6 h-6 text-[#212121]" />
           </Button>
 
           {/* Desktop Date/Outlet selectors */}
           <div className="hidden lg:inline-flex items-center gap-2 px-3 py-2 bg-neutralbg rounded-lg">
-            <CalendarIcon className="relative w-4 h-4 text-[#212121]" />
+            <CalendarIcon className="relative w-5 h-5 text-[#212121]" />
             <div className="text-[#212121] relative w-fit font-text-small-regular font-[number:var(--text-small-regular-font-weight)] text-[length:var(--text-small-regular-font-size)] tracking-[var(--text-small-regular-letter-spacing)] leading-[var(--text-small-regular-line-height)] [font-style:var(--text-small-regular-font-style)]">
               24-03-2001
             </div>
           </div>
 
           <div className="hidden lg:inline-flex items-center gap-2 px-3 py-2 bg-neutralbg rounded-lg cursor-pointer hover:bg-gray-100">
-            <BuildingIcon className="relative w-4 h-4 text-[#212121]" />
+            <BuildingIcon className="relative w-5 h-5 text-[#212121]" />
             <div className="text-[#212121] relative w-fit font-text-small-regular font-[number:var(--text-small-regular-font-weight)] text-[length:var(--text-small-regular-font-size)] tracking-[var(--text-small-regular-letter-spacing)] leading-[var(--text-small-regular-line-height)] [font-style:var(--text-small-regular-font-style)]">
               Outlet name
             </div>
-            <ChevronDownIcon className="relative w-4 h-4 text-[#212121]" />
+            <ChevronDownIcon className="relative w-5 h-5 text-[#212121]" />
           </div>
 
           <Separator
@@ -90,7 +90,7 @@ export const HeaderSection = (): JSX.Element => {
           />
 
           <Button className="bg-brandprimary inline-flex h-8 lg:h-9 items-center justify-center gap-1 lg:gap-2 px-3 lg:px-4 py-2 relative rounded-lg hover:bg-brandprimary/90 transition-colors shadow-sm">
-            <PlusIcon className="relative w-4 h-4" />
+            <PlusIcon className="relative w-5 h-5" />
             <span className="hidden lg:inline relative font-text-small-medium font-[number:var(--text-small-medium-font-weight)] text-white text-[length:var(--text-small-medium-font-size)] tracking-[var(--text-small-medium-letter-spacing)] leading-[var(--text-small-medium-line-height)] [font-style:var(--text-small-medium-font-style)]">
               Create
             </span>
@@ -101,7 +101,7 @@ export const HeaderSection = (): JSX.Element => {
             <div className="w-8 h-8 bg-brandprimary rounded-full flex items-center justify-center">
               <span className="text-white text-sm font-medium">A</span>
             </div>
-            <ChevronDownIcon className="hidden lg:relative w-4 h-4 text-[#212121]" />
+            <ChevronDownIcon className="hidden lg:relative w-5 h-5 text-[#212121]" />
           </div>
         </div>
       </div>

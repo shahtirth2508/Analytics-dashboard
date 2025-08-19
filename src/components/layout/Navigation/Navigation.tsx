@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { Avatar, AvatarFallback } from "../../ui/avatar";
+import { Button } from "../../ui/button";
 import {
   AlertCircleIcon,
   CalendarIcon,
@@ -10,10 +13,7 @@ import {
   SettingsIcon,
   TrendingUpIcon,
   UsersIcon,
-} from "lucide-react";
-import { useState } from "react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+} from "../../icons";
 
 const navigationItems = [
   {
@@ -120,7 +120,7 @@ export const NavigationMenuSection = (): JSX.Element => {
               onClick={() => setActiveItem(item.id)}
             >
               <IconComponent
-                className={`w-6 h-6 lg:w-7 lg:h-7 flex-shrink-0 ${
+                className={`w-5 h-5 flex-shrink-0 ${
                   isActive ? "text-brandprimary" : "text-[#6b7280]"
                 }`}
               />
@@ -142,10 +142,8 @@ export const NavigationMenuSection = (): JSX.Element => {
           variant="ghost"
           className="w-full h-10 flex items-center gap-3 px-3 py-2 rounded-lg justify-start hover:bg-gray-50 transition-colors mb-3"
         >
-          <MessageCircleIcon className="w-6 h-6 lg:w-7 lg:h-7 text-[#6b7280]" />
-          <span className="text-sm font-medium text-[#374151]">
-            Chat
-          </span>
+          <MessageCircleIcon className="w-5 h-5 text-[#6b7280]" />
+          <span className="text-sm font-medium text-[#374151]">Chat</span>
         </Button>
 
         <div className="flex items-center gap-3 p-3 bg-[#f8f9fa] rounded-lg">
@@ -156,12 +154,8 @@ export const NavigationMenuSection = (): JSX.Element => {
           </Avatar>
 
           <div className="flex flex-col flex-1">
-            <div className="text-sm font-medium text-[#212121]">
-              Ajay
-            </div>
-            <div className="text-xs text-[#6b7280]">
-              Manager
-            </div>
+            <div className="text-sm font-medium text-[#212121]">Ajay</div>
+            <div className="text-xs text-[#6b7280]">Manager</div>
           </div>
         </div>
       </div>

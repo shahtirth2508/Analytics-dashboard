@@ -1,3 +1,21 @@
+import { Badge } from "../../ui/badge";
+import { Button } from "../../ui/button";
+import { Card, CardContent, CardHeader } from "../../ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../../ui/select";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../../ui/table";
 import {
   BriefcaseIcon,
   CalendarIcon,
@@ -8,430 +26,15 @@ import {
   MessageCircleIcon,
   MoreHorizontalIcon,
   UserPlusIcon,
-} from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+} from "../../icons";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-
-const statsCards = [
-  {
-    icon: "https://c.animaapp.com/mehdckjb0AcQbl/img/frame-1410090830.svg",
-    title: "22 Ai Review",
-    stats: [
-      {
-        label: "Manually Approve",
-        count: 2,
-        bgColor: "bg-errorbg",
-        textColor: "text-errorcontent",
-      },
-      {
-        label: "Completed",
-        count: 10,
-        bgColor: "bg-successbg",
-        textColor: "text-successcontent",
-      },
-      {
-        label: "Rejected by Ai",
-        count: 10,
-        bgColor: "bg-warningbg",
-        textColor: "text-warningcontent",
-      },
-    ],
-  },
-  {
-    icon: "https://c.animaapp.com/mehdckjb0AcQbl/img/task.svg",
-    iconBg: "bg-[#e7f1ff]",
-    title: "22 Tasks",
-    stats: [
-      {
-        label: "Ongoing",
-        count: 10,
-        bgColor: "bg-warningbg",
-        textColor: "text-warningcontent",
-      },
-      {
-        label: "Overdue",
-        count: 2,
-        bgColor: "bg-errorbg",
-        textColor: "text-errorcontent",
-      },
-      {
-        label: "Completed",
-        count: 10,
-        bgColor: "bg-successbg",
-        textColor: "text-successcontent",
-      },
-      {
-        label: "Scheduled",
-        count: 0,
-        bgColor: "bg-scheduledbg",
-        textColor: "text-scheduledcontent",
-      },
-    ],
-  },
-  {
-    icon: "https://c.animaapp.com/mehdckjb0AcQbl/img/alert-circle.svg",
-    iconBg: "bg-issuebg",
-    title: "22 Issues",
-    stats: [
-      {
-        label: "Ignored",
-        count: 2,
-        bgColor: "bg-errorbg",
-        textColor: "text-errorcontent",
-      },
-      {
-        label: "Resolved",
-        count: 10,
-        bgColor: "bg-successbg",
-        textColor: "text-successcontent",
-      },
-      {
-        label: "Open",
-        count: 10,
-        bgColor: "bg-warningbg",
-        textColor: "text-warningcontent",
-      },
-    ],
-  },
-  {
-    icon: "https://c.animaapp.com/mehdckjb0AcQbl/img/layout-alt-02-1.svg",
-    iconBg: "bg-scheduledbg",
-    title: "20 Forms",
-    stats: [
-      {
-        label: "Open Responses",
-        count: 0,
-        bgColor: "bg-scheduledbg",
-        textColor: "text-scheduledcontent",
-      },
-      {
-        label: "Submitted Responses",
-        count: 10,
-        bgColor: "bg-successbg",
-        textColor: "text-successcontent",
-      },
-      {
-        label: "Ongoing Tasks",
-        count: 10,
-        bgColor: "bg-warningbg",
-        textColor: "text-warningcontent",
-      },
-    ],
-  },
-];
-
-const workTasks = [
-  {
-    id: "#3789",
-    title: "How to Manage Stock",
-    date: "22 June, 2024",
-    time: "11:00 am",
-    comments: 14,
-    status: "Ongoing",
-    category: "Inventory",
-    isHighlighted: false,
-  },
-  {
-    id: "#3789",
-    title: "How to Manage Stock",
-    date: "3 April, 2025",
-    time: "11:00 am",
-    comments: 14,
-    status: "Ongoing",
-    category: "Inventory",
-    isHighlighted: true,
-  },
-  {
-    id: "#7182",
-    title: "Tracking Daily Earnings",
-    date: "12 October, 2024",
-    time: "11:00 am",
-    comments: 18,
-    status: "Ongoing",
-    category: "Inventory",
-    isHighlighted: false,
-  },
-  {
-    id: "#6047",
-    title: "Tool for Managing Reservations",
-    date: "5 September, 2025",
-    time: "11:00 am",
-    comments: 17,
-    status: "Ongoing",
-    category: "Inventory",
-    isHighlighted: false,
-  },
-  {
-    id: "#6047",
-    title: "Tool for Managing Reservations",
-    date: "5 September, 2025",
-    time: "11:00 am",
-    comments: 17,
-    status: "Ongoing",
-    category: "Inventory",
-    isHighlighted: false,
-  },
-  {
-    id: "#4820",
-    title: "Coordinating Employee Shifts",
-    date: "10 July, 2025",
-    time: "11:00 am",
-    comments: 15,
-    status: "Ongoing",
-    category: "Inventory",
-    isHighlighted: false,
-  },
-  {
-    id: "#5913",
-    title: "Reviewing Client Happiness",
-    date: "1 August, 2024",
-    time: "11:00 am",
-    comments: 16,
-    status: "Ongoing",
-    category: "Inventory",
-    isHighlighted: false,
-  },
-  {
-    id: "#2456",
-    title: "Ways to Prepare Meals",
-    date: "15 May, 2024",
-    time: "11:00 am",
-    comments: 13,
-    status: "Ongoing",
-    category: "Inventory",
-    isHighlighted: false,
-  },
-];
-
-const employeeData = [
-  {
-    name: "Anita",
-    department: "IT Services",
-    assigned: 90,
-    ongoing: 90,
-    overdue: 90,
-    completed: "90%",
-  },
-  {
-    name: "Rahul",
-    department: "Human Resources",
-    assigned: 31,
-    ongoing: 31,
-    overdue: 31,
-    completed: "31%",
-  },
-  {
-    name: "Priya",
-    department: "Sales Division",
-    assigned: 45,
-    ongoing: 45,
-    overdue: 45,
-    completed: "45%",
-  },
-  {
-    name: "Vikram",
-    department: "Research and Development",
-    assigned: 79,
-    ongoing: 65,
-    overdue: 14,
-    completed: "79%",
-  },
-  {
-    name: "Sita",
-    department: "Marketing Team",
-    assigned: 52,
-    ongoing: 42,
-    overdue: 10,
-    completed: "52%",
-  },
-  {
-    name: "Ravi",
-    department: "Finance Department",
-    assigned: 64,
-    ongoing: 50,
-    overdue: 14,
-    completed: "64%",
-  },
-  {
-    name: "Kiran",
-    department: "Customer Support",
-    assigned: 87,
-    ongoing: 70,
-    overdue: 17,
-    completed: "87%",
-  },
-  {
-    name: "Neha",
-    department: "Quality Assurance",
-    assigned: 42,
-    ongoing: 35,
-    overdue: 7,
-    completed: "83%",
-  },
-  {
-    name: "Amit",
-    department: "Operations",
-    assigned: 65,
-    ongoing: 48,
-    overdue: 17,
-    completed: "74%",
-  },
-  {
-    name: "Pooja",
-    department: "Design Team",
-    assigned: 33,
-    ongoing: 25,
-    overdue: 8,
-    completed: "76%",
-  },
-  {
-    name: "Rajesh",
-    department: "Product Management",
-    assigned: 58,
-    ongoing: 40,
-    overdue: 18,
-    completed: "69%",
-  },
-  {
-    name: "Deepika",
-    department: "Business Development",
-    assigned: 71,
-    ongoing: 55,
-    overdue: 16,
-    completed: "77%",
-  },
-  {
-    name: "Arjun",
-    department: "Data Analytics",
-    assigned: 39,
-    ongoing: 30,
-    overdue: 9,
-    completed: "77%",
-  },
-  {
-    name: "Kavya",
-    department: "Content Strategy",
-    assigned: 46,
-    ongoing: 35,
-    overdue: 11,
-    completed: "76%",
-  },
-  {
-    name: "Rohit",
-    department: "DevOps",
-    assigned: 82,
-    ongoing: 60,
-    overdue: 22,
-    completed: "73%",
-  },
-  {
-    name: "Sneha",
-    department: "UX Research",
-    assigned: 29,
-    ongoing: 22,
-    overdue: 7,
-    completed: "76%",
-  },
-  {
-    name: "Manoj",
-    department: "Security",
-    assigned: 54,
-    ongoing: 38,
-    overdue: 16,
-    completed: "70%",
-  },
-  {
-    name: "Priyanka",
-    department: "Legal Affairs",
-    assigned: 18,
-    ongoing: 14,
-    overdue: 4,
-    completed: "78%",
-  },
-];
-
-const overdueTasksData = [
-  {
-    task: "Menu Planning",
-    assignedTo: "Ajay",
-    status: "Overdue",
-    dueDate: "12-07-2024",
-  },
-  {
-    task: "Staff Scheduling",
-    assignedTo: "Niraj",
-    status: "Overdue",
-    dueDate: "01-08-2023",
-  },
-  {
-    task: "Inventory management",
-    assignedTo: "Vijay",
-    status: "Overdue",
-    dueDate: "02-09-2022",
-  },
-  {
-    task: "Customer Feedback Analysis",
-    assignedTo: "Arvind",
-    status: "Overdue",
-    dueDate: "11-06-2025",
-  },
-  {
-    task: "Budget Forecasting",
-    assignedTo: "Priya",
-    status: "Overdue",
-    dueDate: "04-11-2020",
-  },
-  {
-    task: "Marketing Strategy Development",
-    assignedTo: "Suresh",
-    status: "Overdue",
-    dueDate: "10-05-2026",
-  },
-  {
-    task: "Quality Assurance Testing",
-    assignedTo: "Fatima",
-    status: "Overdue",
-    dueDate: "03-10-2021",
-  },
-];
-
-const workflowsData = [
-  { title: "Stock Control Strategies", responses: 47, tasks: 22 },
-  { title: "How to Handle Inventory", responses: 23, tasks: 15 },
-  { title: "Inventory Management Tips", responses: 56, tasks: 30 },
-  { title: "Managing Your Stock Effectively", responses: 89, tasks: 5 },
-  { title: "Optimizing Your Inventory", responses: 78, tasks: 12 },
-  { title: "Stock Management Techniques", responses: 34, tasks: 8 },
-];
-
-const notepadItems = [
-  {
-    title: "Make shift & assign",
-    description:
-      "Assign individuals to specific shifts based on availability and role requirements",
-  },
-  {
-    title: "Menu correction",
-    description:
-      "Update the menu to show the dishes and their ingredients clearly. Point out any new cooking methods or dietary options.",
-  },
-];
+  statsCards,
+  workTasks,
+  employeeData,
+  overdueTasksData,
+  workflowsData,
+  notepadItems,
+} from "../../../data/dashboardData";
 
 export const MainContentSection = (): JSX.Element => {
   return (
@@ -469,18 +72,18 @@ export const MainContentSection = (): JSX.Element => {
                 <div className="flex items-center gap-3 relative self-stretch w-full flex-[0_0_auto] mb-3">
                   {card.iconBg ? (
                     <div
-                      className={`inline-flex items-center justify-center gap-2.5 p-2 relative flex-[0_0_auto] ${card.iconBg} rounded-lg`}
+                      className={`inline-flex items-center justify-center gap-2.5 p-3 relative flex-[0_0_auto] ${card.iconBg} rounded-lg`}
                     >
                       <img
-                        className="relative w-4 h-4"
+                        className="relative w-9 h-9"
                         alt="Icon"
                         src={card.icon}
                       />
                     </div>
                   ) : (
-                    <div className="inline-flex items-center justify-center gap-2.5 p-2 relative flex-[0_0_auto] bg-gray-50 rounded-lg">
+                    <div className="inline-flex items-center justify-center gap-2.5 p-3 relative flex-[0_0_auto] bg-gray-50 rounded-lg">
                       <img
-                        className="relative w-4 h-4"
+                        className="relative w-9 h-9"
                         alt="Icon"
                         src={card.icon}
                       />
@@ -528,23 +131,35 @@ export const MainContentSection = (): JSX.Element => {
               <div className="flex flex-wrap items-start gap-4 sm:gap-6 lg:gap-8">
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-1 whitespace-nowrap">
-                    <span className="text-xs sm:text-sm font-medium text-brandprimary">Tasks</span>
-                    <span className="text-xs sm:text-sm font-medium text-brandprimary">10</span>
+                    <span className="text-xs sm:text-sm font-medium text-brandprimary">
+                      Tasks
+                    </span>
+                    <span className="text-xs sm:text-sm font-medium text-brandprimary">
+                      10
+                    </span>
                   </div>
                   <div className="w-full h-0.5 bg-brandprimary rounded-full" />
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-1 whitespace-nowrap">
-                    <span className="text-xs sm:text-sm font-medium text-gray-600">Issues</span>
-                    <span className="text-xs sm:text-sm font-medium text-gray-600">10</span>
+                    <span className="text-xs sm:text-sm font-medium text-gray-600">
+                      Issues
+                    </span>
+                    <span className="text-xs sm:text-sm font-medium text-gray-600">
+                      10
+                    </span>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-1 whitespace-nowrap">
-                    <span className="text-xs sm:text-sm font-medium text-gray-600">Forms</span>
-                    <span className="text-xs sm:text-sm font-medium text-gray-600">10</span>
+                    <span className="text-xs sm:text-sm font-medium text-gray-600">
+                      Forms
+                    </span>
+                    <span className="text-xs sm:text-sm font-medium text-gray-600">
+                      10
+                    </span>
                   </div>
                 </div>
               </div>
@@ -567,7 +182,7 @@ export const MainContentSection = (): JSX.Element => {
                 size="icon"
                 className="w-8 h-8 hover:bg-gray-100 rounded-lg"
               >
-                <MoreHorizontalIcon className="w-5 h-5 text-gray-500" />
+                <MoreHorizontalIcon className="w-6 h-6 text-gray-500" />
               </Button>
             </div>
           </CardHeader>
@@ -585,7 +200,7 @@ export const MainContentSection = (): JSX.Element => {
                     <div className="flex items-start justify-between">
                       <div className="flex flex-col gap-1">
                         <div className="flex items-center gap-1">
-                          <ChevronUpIcon className="w-4 h-4 text-gray-400" />
+                          <ChevronUpIcon className="w-5 h-5 text-gray-400" />
                           <span className="text-xs text-gray-500">
                             ID {task.id}
                           </span>
@@ -596,7 +211,7 @@ export const MainContentSection = (): JSX.Element => {
                       </div>
 
                       <div className="flex items-center gap-1">
-                        <MessageCircleIcon className="w-4 h-4 text-gray-400" />
+                        <MessageCircleIcon className="w-5 h-5 text-gray-400" />
                         <span className="text-xs text-gray-500">
                           {task.comments}
                         </span>
@@ -606,13 +221,13 @@ export const MainContentSection = (): JSX.Element => {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <div className="flex items-center gap-1">
-                          <CalendarIcon className="w-4 h-4 text-gray-400" />
+                          <CalendarIcon className="w-5 h-5 text-gray-400" />
                           <span className="text-xs text-gray-500">
                             {task.date}
                           </span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <ClockIcon className="w-4 h-4 text-gray-400" />
+                          <ClockIcon className="w-5 h-5 text-gray-400" />
                           <span className="text-xs text-gray-500">
                             {task.time}
                           </span>
@@ -664,23 +279,35 @@ export const MainContentSection = (): JSX.Element => {
               <div className="flex items-start gap-8">
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-1 whitespace-nowrap">
-                    <span className="text-sm font-medium text-brandprimary">Tasks</span>
-                    <span className="text-sm font-medium text-brandprimary">10</span>
+                    <span className="text-sm font-medium text-brandprimary">
+                      Tasks
+                    </span>
+                    <span className="text-sm font-medium text-brandprimary">
+                      10
+                    </span>
                   </div>
                   <div className="w-full h-0.5 bg-brandprimary rounded-full" />
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-1 whitespace-nowrap">
-                    <span className="text-sm font-medium text-gray-600">Issues</span>
-                    <span className="text-sm font-medium text-gray-600">10</span>
+                    <span className="text-sm font-medium text-gray-600">
+                      Issues
+                    </span>
+                    <span className="text-sm font-medium text-gray-600">
+                      10
+                    </span>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-1 whitespace-nowrap">
-                    <span className="text-sm font-medium text-gray-600">Workflows</span>
-                    <span className="text-sm font-medium text-gray-600">10</span>
+                    <span className="text-sm font-medium text-gray-600">
+                      Workflows
+                    </span>
+                    <span className="text-sm font-medium text-gray-600">
+                      10
+                    </span>
                   </div>
                 </div>
               </div>
@@ -742,29 +369,32 @@ export const MainContentSection = (): JSX.Element => {
                 </TableHeader>
                 <TableBody>
                   {employeeData.map((employee, index) => (
-                  <TableRow key={index} className="border-b border-gray-100 hover:bg-gray-50">
-                    <TableCell className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm text-gray-900">
-                      {employee.name}
-                    </TableCell>
-                    <TableCell className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm text-gray-900">
-                      {employee.department}
-                    </TableCell>
-                    <TableCell className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm text-gray-900 text-center">
-                      {employee.assigned}
-                    </TableCell>
-                    <TableCell className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm text-gray-900 text-center">
-                      {employee.ongoing}
-                    </TableCell>
-                    <TableCell className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm text-gray-900 text-center">
-                      {employee.overdue}
-                    </TableCell>
-                    <TableCell className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm text-gray-900 text-center">
-                      {employee.completed}
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                    <TableRow
+                      key={index}
+                      className="border-b border-gray-100 hover:bg-gray-50"
+                    >
+                      <TableCell className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm text-gray-900">
+                        {employee.name}
+                      </TableCell>
+                      <TableCell className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm text-gray-900">
+                        {employee.department}
+                      </TableCell>
+                      <TableCell className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm text-gray-900 text-center">
+                        {employee.assigned}
+                      </TableCell>
+                      <TableCell className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm text-gray-900 text-center">
+                        {employee.ongoing}
+                      </TableCell>
+                      <TableCell className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm text-gray-900 text-center">
+                        {employee.overdue}
+                      </TableCell>
+                      <TableCell className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm text-gray-900 text-center">
+                        {employee.completed}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
             </div>
           </CardContent>
         </Card>
@@ -823,20 +453,26 @@ export const MainContentSection = (): JSX.Element => {
                 <div className="flex flex-wrap items-start gap-4 sm:gap-6 lg:gap-8">
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-1 whitespace-nowrap">
-                      <span className="text-xs sm:text-sm font-medium text-brandprimary">Tasks</span>
+                      <span className="text-xs sm:text-sm font-medium text-brandprimary">
+                        Tasks
+                      </span>
                     </div>
                     <div className="w-full h-0.5 bg-brandprimary rounded-full" />
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-1 whitespace-nowrap">
-                      <span className="text-xs sm:text-sm font-medium text-gray-600">Issues</span>
+                      <span className="text-xs sm:text-sm font-medium text-gray-600">
+                        Issues
+                      </span>
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-1 whitespace-nowrap">
-                      <span className="text-xs sm:text-sm font-medium text-gray-600">Forms</span>
+                      <span className="text-xs sm:text-sm font-medium text-gray-600">
+                        Forms
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -847,9 +483,7 @@ export const MainContentSection = (): JSX.Element => {
                   variant="ghost"
                   size="icon"
                   className="w-6 h-6 sm:w-8 sm:h-8 text-gray-500 hover:text-gray-700"
-                >
-                  <ExternalLinkIcon className="w-3 h-3 sm:w-4 sm:h-4" />
-                </Button>
+                ></Button>
                 <Button
                   variant="ghost"
                   size="icon"
@@ -886,26 +520,68 @@ export const MainContentSection = (): JSX.Element => {
 
                 {/* Chart bars */}
                 <div className="flex-1 flex items-end justify-center gap-1 sm:gap-2 lg:gap-3 h-full">
-                  <div className="w-4 sm:w-5 lg:w-6 bg-[#7dd3c0] rounded-t-sm" style={{ height: '20%' }}>
-                    <div className="w-full bg-[#ffd966] rounded-t-sm" style={{ height: '25%' }}></div>
+                  <div
+                    className="w-4 sm:w-5 lg:w-6 bg-[#7dd3c0] rounded-t-sm"
+                    style={{ height: "20%" }}
+                  >
+                    <div
+                      className="w-full bg-[#ffd966] rounded-t-sm"
+                      style={{ height: "25%" }}
+                    ></div>
                   </div>
-                  <div className="w-4 sm:w-5 lg:w-6 bg-[#7dd3c0] rounded-t-sm" style={{ height: '35%' }}>
-                    <div className="w-full bg-[#ffd966] rounded-t-sm" style={{ height: '23%' }}></div>
+                  <div
+                    className="w-4 sm:w-5 lg:w-6 bg-[#7dd3c0] rounded-t-sm"
+                    style={{ height: "35%" }}
+                  >
+                    <div
+                      className="w-full bg-[#ffd966] rounded-t-sm"
+                      style={{ height: "23%" }}
+                    ></div>
                   </div>
-                  <div className="w-4 sm:w-5 lg:w-6 bg-[#7dd3c0] rounded-t-sm" style={{ height: '50%' }}>
-                    <div className="w-full bg-[#ffd966] rounded-t-sm" style={{ height: '24%' }}></div>
+                  <div
+                    className="w-4 sm:w-5 lg:w-6 bg-[#7dd3c0] rounded-t-sm"
+                    style={{ height: "50%" }}
+                  >
+                    <div
+                      className="w-full bg-[#ffd966] rounded-t-sm"
+                      style={{ height: "24%" }}
+                    ></div>
                   </div>
-                  <div className="w-4 sm:w-5 lg:w-6 bg-[#7dd3c0] rounded-t-sm" style={{ height: '65%' }}>
-                    <div className="w-full bg-[#ffd966] rounded-t-sm" style={{ height: '23%' }}></div>
+                  <div
+                    className="w-4 sm:w-5 lg:w-6 bg-[#7dd3c0] rounded-t-sm"
+                    style={{ height: "65%" }}
+                  >
+                    <div
+                      className="w-full bg-[#ffd966] rounded-t-sm"
+                      style={{ height: "23%" }}
+                    ></div>
                   </div>
-                  <div className="w-4 sm:w-5 lg:w-6 bg-[#7dd3c0] rounded-t-sm" style={{ height: '75%' }}>
-                    <div className="w-full bg-[#ffd966] rounded-t-sm" style={{ height: '24%' }}></div>
+                  <div
+                    className="w-4 sm:w-5 lg:w-6 bg-[#7dd3c0] rounded-t-sm"
+                    style={{ height: "75%" }}
+                  >
+                    <div
+                      className="w-full bg-[#ffd966] rounded-t-sm"
+                      style={{ height: "24%" }}
+                    ></div>
                   </div>
-                  <div className="w-4 sm:w-5 lg:w-6 bg-[#7dd3c0] rounded-t-sm" style={{ height: '85%' }}>
-                    <div className="w-full bg-[#ffd966] rounded-t-sm" style={{ height: '24%' }}></div>
+                  <div
+                    className="w-4 sm:w-5 lg:w-6 bg-[#7dd3c0] rounded-t-sm"
+                    style={{ height: "85%" }}
+                  >
+                    <div
+                      className="w-full bg-[#ffd966] rounded-t-sm"
+                      style={{ height: "24%" }}
+                    ></div>
                   </div>
-                  <div className="w-4 sm:w-5 lg:w-6 bg-[#7dd3c0] rounded-t-sm" style={{ height: '90%' }}>
-                    <div className="w-full bg-[#ffd966] rounded-t-sm" style={{ height: '24%' }}></div>
+                  <div
+                    className="w-4 sm:w-5 lg:w-6 bg-[#7dd3c0] rounded-t-sm"
+                    style={{ height: "90%" }}
+                  >
+                    <div
+                      className="w-full bg-[#ffd966] rounded-t-sm"
+                      style={{ height: "24%" }}
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -970,7 +646,10 @@ export const MainContentSection = (): JSX.Element => {
                   </TableHeader>
                   <TableBody>
                     {overdueTasksData.slice(0, 4).map((task, index) => (
-                      <TableRow key={index} className="border-b border-gray-100 hover:bg-gray-50">
+                      <TableRow
+                        key={index}
+                        className="border-b border-gray-100 hover:bg-gray-50"
+                      >
                         <TableCell className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm text-gray-900">
                           {task.task}
                         </TableCell>

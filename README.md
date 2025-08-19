@@ -27,7 +27,7 @@
 
 The application will be available at `http://localhost:5173`
 
-## List of Tools Used 
+## List of Tools Used
 
 ### Frontend Framework & Libraries
 
@@ -37,9 +37,8 @@ The application will be available at `http://localhost:5173`
 
 ### UI Components & Icons
 
-- **Lucide React** - Beautiful & consistent icon library
-- **Radix UI** - Low-level UI primitives for building design systems
-- **Shadcn/ui** - Re-usable components built using Radix UI and Tailwind CSS
+- **Custom Tailwind Components** - Pure Tailwind CSS components without external dependencies
+- **Custom SVG Icons** - Lightweight icon components built with SVG and Tailwind CSS
 
 ### Development Tools
 
@@ -64,11 +63,15 @@ The application will be available at `http://localhost:5173`
 ## AI Tools Used
 
 - **Anima** - AI-powered Figma to React conversion tool used for:
+
   - Converting Figma designs to React components
   - Generating initial component structure and styling
   - Accelerating the design-to-code workflow
 
 - **Augment Agent** - AI coding assistant used for:
+
   - Code generation and component development
   - Debugging and error resolution
   - Code optimization and best practices
+
+  https://analytics-dashboard-omega-eight.vercel.app/
