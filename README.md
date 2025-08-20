@@ -11,7 +11,7 @@
 2. **Start Development Server**
 
    ```bash
-   npm start
+   npm run dev
    ```
 
 3. **Build for Production**
@@ -46,19 +46,14 @@ The application will be available at `http://localhost:5173`
 - **ESLint** - JavaScript/TypeScript linting
 - **Prettier** - Code formatting
 
-### Build & Package Management
-
-- **npm** - Package manager
-- **Webpack** - Module bundler (via Create React App)
-
 ## Time Taken
 
-**Total Development Time: ~4-6 hours**
+**Total Development Time: ~6-7 hours**
 
 - Initial project setup and component structure: 1-2 hours
 - Dashboard layout and navigation implementation: 2-3 hours
 - Styling and responsive design: 1-2 hours
-- Testing and bug fixes: 30 minutes
+- Testing and bug fixes: 45 minutes
 
 ## AI Tools Used
 
@@ -74,4 +69,6 @@ The application will be available at `http://localhost:5173`
   - Debugging and error resolution
   - Code optimization and best practices
 
-  https://analytics-dashboard-omega-eight.vercel.app/
+  ## Live Demo Link
+
+- https://analytics-dashboard-omega-eight.vercel.app/

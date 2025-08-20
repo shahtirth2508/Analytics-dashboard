@@ -1,5 +1,5 @@
 {
-  "name": "anima-project",
+  "name": "analytics-dashboard",
   "version": "1.0.0",
   "description": "A React task dashboard built with pure Tailwind CSS components",
   "type": "module",
